@@ -31,7 +31,7 @@ export default function StopWatch() {
   }
 
   return (
-    <main>
+    <main className="main-stopwatch">
       <div className="card">
         <h1>Ustaw minutnik</h1>
         {/* <input className="input-words" type="text" placeholder="wprowadź zakazane słowa..." /> */}

@@ -127,3 +127,12 @@ a.button {
   width:40px;
   font-size: 1.4rem;
 }
+
+.main-stopwatch {
+  display: flex;
+  justify-content: center;
+}
+
+.main-stopwatch .card{
+  width: 328px;
+}
