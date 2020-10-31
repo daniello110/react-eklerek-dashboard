@@ -75,8 +75,10 @@ export const fetchDessert = async (randomNumber) => {
         .then(({ data }) => {
           dessert = {
             ...dessert,
-            meta: data.query.search[0].snippet,
+            meta: data.query.search[0].snippet && '',
           }
+        }).catch((error) => {
+          console.log(error);
         })
         .then(() => {
           return axios.get(WIKIPEDIA_ENDPOINT,

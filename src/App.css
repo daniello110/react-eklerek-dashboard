@@ -43,7 +43,7 @@ h1 {
   justify-content: space-between;
   border-radius: .5rem;
   background-color: #FAFAFF;
-  max-width: 400px;
+  width: 370px;
   min-height: 400px;
   box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.02),
