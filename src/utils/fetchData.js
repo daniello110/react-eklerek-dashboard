@@ -51,6 +51,7 @@ export const fetchDessert = async (randomNumber) => {
       }
     })
     .then(({ data }) => {
+      console.log(data.records[0].fields.Deser)
       dessert = {
         ...dessert,
         number: randomNumber,

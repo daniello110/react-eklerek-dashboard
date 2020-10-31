@@ -13,6 +13,7 @@ export default function DessertGenerator() {
   })
 
   const [showDessert, setShowDessert] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const [tabLength, setTabLength] = useState();
   const DURATION = 4000;
 
@@ -26,6 +27,7 @@ export default function DessertGenerator() {
   }
 
   const getRandomDessert = async () => {
+    setButtonDisabled(true);
     // Reset previous state values
     setDessert({});
     setShowDessert(false);
@@ -39,6 +41,7 @@ export default function DessertGenerator() {
     // Set Timeout to show dessert information after the countup is finished
     setTimeout(() => {
       setShowDessert(true);
+      setButtonDisabled(false)
     }, DURATION);
   }
 
@@ -46,8 +49,8 @@ export default function DessertGenerator() {
     <main className="main-dessert">
       <div className="card">
         <h1>Jakim deserem dziś jesteś?</h1>
-        {dessert.name && <CountUp className="countup-dessert" end={dessert.number} duration={DURATION / 1000} />}
-        <button onClick={getRandomDessert}>Losuj</button>
+        {dessert.name ? <CountUp className="countup-dessert" end={dessert.number} duration={DURATION / 1000} /> : <span className="time">?</span>}
+        <button disabled={buttonDisabled} onClick={getRandomDessert}>Losuj</button>
       </div>
       {showDessert
         && (

@@ -94,7 +94,7 @@ h1 {
   justify-content: space-evenly;
 }
 
-.countup-dessert{
+.countup-dessert, .time{
   font-size: 3rem;
 }
 
@@ -114,4 +114,16 @@ a.button {
 
 .meta-dessert::after {
   content: '...'
+}
+
+.card input {
+  text-align: right;
+  border: none;
+  border-bottom: 1px solid #3E4358;
+  background-color: rgba(0,0,0,0);
+}
+
+.input-timer {
+  width:40px;
+  font-size: 1.4rem;
 }
