@@ -1,38 +1,117 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  min-height: 100vh;
+  background-color:#F4F3FF;
+  font-family: 'Montserrat', sans-serif;
+  color: #3E4358;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+button, .button {
+  padding: 18px 26px;
+  align-self: center;
+  margin: 4px 0;
+  border-radius: 1.3rem;
+  border: none;
+  background-color:#EA9F66;
+  font-size: .8rem;
+  color: #fff;
+  text-decoration: none;
+  width:100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  text-align: center;
+  font-size: 1.6rem !important;
+  font-weight: 700;
+  margin-bottom: 28px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+  display: flex;
+  padding: 40px 40px;
+  margin-top: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: .5rem;
+  background-color: #FAFAFF;
+  max-width: 400px;
+  min-height: 400px;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0 100px 80px rgba(0, 0, 0, 0.07)
+;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.meta {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.frame {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #f7bc8feb;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+          transition:         transform .4s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.frame:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  width:48px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.main-dessert {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.countup-dessert{
+  font-size: 3rem;
+}
+
+.img-dessert{
+  border-radius: .5rem;
+  width:80%;
+  margin-bottom: 12px;
+}
+
+a.button {
+  max-width: 366px;
+}
+
+.meta-dessert {
+  margin: 24px auto;
+}
+
+.meta-dessert::after {
+  content: '...'
 }
