@@ -34,7 +34,7 @@ export default function DessertGenerator() {
 
     // Draw a random number
     const randomNumber = Math.floor(Math.random() * (tabLength - 1 + 1)) + 2;
-
+    console.log(randomNumber)
 
     const dessert = await fetchDessert(randomNumber);
     setDessert(dessert);
