@@ -6,7 +6,8 @@ const WIKIPEDIA_ENDPOINT = `https://en.wikipedia.org/w/api.php`
 
 
 export const fetchtTableLength = async () => {
-  const { data } = await axios.get(AIRTABLE_ENDPOINT,
+  let tabLength = 0
+  await axios.get(AIRTABLE_ENDPOINT,
     {
       params:
       {
@@ -14,9 +15,12 @@ export const fetchtTableLength = async () => {
         api_key: 'keyyMzVS2EzPKsaLV',
         maxRecords: 1,
       }
-    });
-  console.log(`table length: ${data.records[0].fields.Nume}`)
-  return data.records[0].fields.Numer
+    })
+    .then(({ data }) => {
+      tabLength = data.records[0].fields.Numer
+    })
+  console.log(`table length: ${tabLength}`)
+  return tabLength
 }
 
 
