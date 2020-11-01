@@ -73,9 +73,12 @@ export const fetchDessert = async (randomNumber) => {
           },
         })
         .then(({ data }) => {
+          const { query } = data
+          console.log(data);
+          console.log(query.hasOwnProperty('search'))
           dessert = {
             ...dessert,
-            meta: data.query.search[0].snippet && '',
+            meta: data.query.search[0].snippet,
           }
         }).catch((error) => {
           console.log(error);
@@ -97,9 +100,10 @@ export const fetchDessert = async (randomNumber) => {
         .then(({ data }) => {
           const result = data.query.pages;
           const id = Object.keys(result)[0];
+          console.log(result[id].hasOwnProperty('original'))
           dessert = {
             ...dessert,
-            img: result[id].original.source,
+            img: result[id].hasOwnProperty('original') ? result[id].original.source : 'https://i.imgur.com/uCqQoR2.jpg',
           }
         })
         .then(() => {
