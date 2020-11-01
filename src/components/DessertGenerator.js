@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CountUp from 'react-countup';
-import { fetchtTableLength, fetchDessert } from '../utils/fetchData1'
+import { fetchtTableLength, fetchDessert } from '../utils/fetchData'
 
 export default function DessertGenerator() {
 
@@ -13,6 +13,7 @@ export default function DessertGenerator() {
   })
 
   const [showDessert, setShowDessert] = useState(false);
+  const [showTaken, setShowTaken] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [tabLength, setTabLength] = useState();
   const DURATION = 4000;
@@ -31,6 +32,7 @@ export default function DessertGenerator() {
     // Reset previous state values
     setDessert({});
     setShowDessert(false);
+    setShowTaken(false)
 
     // Draw a random number
     const randomNumber = Math.floor(Math.random() * (tabLength - 1 + 1)) + 2;
@@ -40,7 +42,11 @@ export default function DessertGenerator() {
     setDessert(dessert);
     // Set Timeout to show dessert information after the countup is finished
     setTimeout(() => {
-      setShowDessert(true);
+      if (dessert.meta !== 'taken') {
+        setShowDessert(true);
+      } else {
+        setShowTaken(true);
+      }
       setButtonDisabled(false)
     }, DURATION);
   }
@@ -49,11 +55,20 @@ export default function DessertGenerator() {
     <main className="main-dessert">
       <div className="card">
         <h1>Jakim deserem dziś jesteś?</h1>
-        {dessert.name ? <CountUp className="countup-dessert" end={dessert.number} duration={DURATION / 1000} /> : <span className="time">?</span>}
-        <button disabled={buttonDisabled} onClick={getRandomDessert}>Losuj</button>
+        {dessert.name
+          ? (
+            <CountUp className="countup-dessert" end={dessert.number} duration={DURATION / 1000} />
+          )
+          : (
+            <span className="time">?</span>
+          )}
+        {showTaken && <h3>Deser o tym numerze jest już zajęty!</h3>}
+
+
+        <button disabled={buttonDisabled} onClick={getRandomDessert}>{showTaken ? `Spróbuj ponownie` : `Losuj`}</button>
       </div>
       {showDessert
-        && (
+        && dessert.meta !== 'taken' && (
           <div className="card">
             <h1>{dessert.name}</h1>
             <img className="img-dessert" src={dessert.img} alt={dessert.name} />
