@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CountUp from 'react-countup';
-import { fetchtTableLength, fetchDessert } from '../utils/fetchData'
+import { fetchtTableLength, fetchDessert } from '../utils/fetchData1'
 
 export default function DessertGenerator() {
 
