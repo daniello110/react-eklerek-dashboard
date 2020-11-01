@@ -15,6 +15,7 @@ export const fetchtTableLength = async () => {
         maxRecords: 1,
       }
     });
+  console.log(`table length: ${data.records[0].fields.Nume}`)
   return data.records[0].fields.Numer
 }
 
@@ -51,7 +52,7 @@ export const fetchDessert = async (randomNumber) => {
       }
     })
     .then(({ data }) => {
-      console.log(data.records[0].fields.Deser)
+      console.log(`Airtable dessert ${data}`)
       dessert = {
         ...dessert,
         number: randomNumber,
