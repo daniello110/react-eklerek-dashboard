@@ -7,6 +7,7 @@ const WIKIPEDIA_ENDPOINT = `https://en.wikipedia.org/w/api.php`
 
 export const fetchtTableLength = async () => {
   let tabLength = ''
+  let randomNumber = ''
   await axios.get(AIRTABLE_ENDPOINT,
     {
       params:
@@ -18,9 +19,11 @@ export const fetchtTableLength = async () => {
     })
     .then(({ data }) => {
       tabLength = data.records[0].fields.Numer
+      randomNumber = Math.floor(Math.random() * (tabLength - 1 + 1)) + 2
     })
   console.log(`table length: ${tabLength}`)
-  return tabLength
+  console.log(`random number ${randomNumber}`)
+  return randomNumber
 }
 
 

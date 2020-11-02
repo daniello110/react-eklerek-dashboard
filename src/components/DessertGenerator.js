@@ -12,10 +12,11 @@ export default function DessertGenerator() {
     meta: '',
   })
 
+  const [randomNumber, setRandomNumber] = useState(null);
   const [showDessert, setShowDessert] = useState(false);
   const [showTaken, setShowTaken] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [tabLength, setTabLength] = useState();
+  //const [tabLength, setTabLength] = useState();
   const DURATION = 4000;
 
   useEffect(() => {
@@ -24,10 +25,11 @@ export default function DessertGenerator() {
 
   const getTableLength = async () => {
     const data = await fetchtTableLength();
-    setTabLength(data);
+    setRandomNumber(data);
   }
 
   const getRandomDessert = async () => {
+    getTableLength();
     setButtonDisabled(true);
     // Reset previous state values
     setDessert({});
@@ -35,7 +37,7 @@ export default function DessertGenerator() {
     setShowTaken(false)
 
     // Draw a random number
-    const randomNumber = Math.floor(Math.random() * (tabLength - 1 + 1)) + 2;
+    //setRandomNumber(Math.floor(Math.random() * (tabLength - 1 + 1)) + 2);
     console.log(randomNumber)
 
     const dessert = await fetchDessert(randomNumber);

@@ -8,7 +8,7 @@ export default function Login() {
   const [password, setPassword] = useState('')
   //const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const { login } = useAuth();
+  const { resetPassword } = useAuth();
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -19,7 +19,7 @@ export default function Login() {
     try {
       //setError('')
       setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
+      await resetPassword(emailRef.current.value)
       history.push('/')
     } catch (error) {
       //setError('Nie udało się zalogować na podane konto')
@@ -35,7 +35,7 @@ export default function Login() {
   return (
     <div className='container'>
       <div className="card">
-        <h1>Zaloguj się</h1>
+        <h1>Zresetuj istniejące hasło</h1>
         <form action="submit" onSubmit={handleSubmit}>
           <label>
             <h3>Email</h3>
@@ -46,20 +46,9 @@ export default function Login() {
               ref={emailRef}
               onChange={(e) => setEmail(e.currentTarget.value)} />
           </label>
-          <label>
-            <h3>Password</h3>
-            <input
-              required
-              type="password"
-              value={password}
-              ref={passwordRef}
-              onChange={(e) => setPassword(e.currentTarget.value)} />
-
-          </label>
-
-          <button disabled={loading} type="submit">Zaloguj się</button>
+          <button disabled={loading} type="submit">Zresetuj</button>
         </form>
-        <div className='container-forgot'>Zapomniałeś hasło? <Link className='button-logout' to="/forgetpassword">Odzyskaj je</Link></div>
+        <div className='container-forgot'><Link className='button-logout' to="/login">Zaloguj się</Link></div>
 
       </div>
     </div>

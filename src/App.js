@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import DessertGenerator from './components/DessertGenerator'
 import { AuthProvider } from './context/AuthContext'
+import ForgotPassword from './components/ForgotPassword'
 import PrivateRoute from './components/PrivateRoute'
 import Stopwatch from './components/Stopwatch'
 import Login from './components/Login'
@@ -16,6 +17,7 @@ function App() {
           <AuthProvider>
             <Switch>
               <Route path="/login" component={Login} />
+              <Route path='/forgetpassword' component={ForgotPassword} />
               <PrivateRoute exact path="/" component={Main} />
               <PrivateRoute path="/dessert" component={DessertGenerator} />
               <PrivateRoute path='/stopwatch' component={Stopwatch} />

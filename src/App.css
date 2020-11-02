@@ -108,7 +108,7 @@ a.button {
   max-width: 366px;
 }
 
-button.button-logout {
+button.button-logout, .button-logout {
  background-color: rgba(0, 0, 0, 0);
  color:black;
  text-decoration: underline;
@@ -118,6 +118,10 @@ button.button-logout {
 
 button.button-logout:hover {
   color:red
+}
+
+.button-logout:hover {
+  color: lightseagreen
 }
 
 .button-logout {
