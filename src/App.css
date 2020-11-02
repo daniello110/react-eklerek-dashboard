@@ -108,6 +108,22 @@ a.button {
   max-width: 366px;
 }
 
+button.button-logout {
+ background-color: rgba(0, 0, 0, 0);
+ color:black;
+ text-decoration: underline;
+ padding:0;
+ margin: 15px 0 -20px 0;
+}
+
+button.button-logout:hover {
+  color:red
+}
+
+.button-logout {
+  display: inline;
+}
+
 .meta-dessert {
   margin: 24px auto;
 }
@@ -137,9 +153,55 @@ a.button {
   width: 328px;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 86%;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-bottom: 1px solid #3E4358;
+}
+
+form label h3 {
+  margin: 24px 0;
+}
+
+form label input {
+  font-size: 1.1rem;
+  text-align: left !important;
+  border:none !important;
+  margin-bottom:6px
+}
+
+form button {
+  margin-top: 50px;
+}
+
+.container-forgot {
+  font-size: 0.8rem;
+  margin-bottom: -14px;
+}
+
 @media (max-width: 1045px) {
   .main-dessert{
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (max-width: 485px) {
+  .card {
+    margin: 15px;
+    width: auto;
   }
 }

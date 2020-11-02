@@ -1,20 +1,26 @@
 import './reset.css'
 import './App.css';
-import DessertGenerator from './components/DessertGenerator'
-import Stopwatch from './components/Stopwatch'
-import Main from './components/Main'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import DessertGenerator from './components/DessertGenerator'
+import { AuthProvider } from './context/AuthContext'
+import PrivateRoute from './components/PrivateRoute'
+import Stopwatch from './components/Stopwatch'
+import Login from './components/Login'
+import Main from './components/Main'
 
 function App() {
   return (
     <main>
       <div >
         <Router>
-          <Switch>
-            <Route exact path="/" component={Main} />
-            <Route path="/dessert" component={DessertGenerator} />
-            <Route path='/stopwatch' component={Stopwatch} />
-          </Switch>
+          <AuthProvider>
+            <Switch>
+              <Route path="/login" component={Login} />
+              <PrivateRoute exact path="/" component={Main} />
+              <PrivateRoute path="/dessert" component={DessertGenerator} />
+              <PrivateRoute path='/stopwatch' component={Stopwatch} />
+            </Switch>
+          </AuthProvider>
         </Router>
       </div>
     </main>
