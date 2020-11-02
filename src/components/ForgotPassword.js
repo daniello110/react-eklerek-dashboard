@@ -5,27 +5,21 @@ import { useHistory } from 'react-router-dom'
 
 export default function Login() {
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  //const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const { resetPassword } = useAuth();
 
   const emailRef = useRef();
-  const passwordRef = useRef();
   const history = useHistory();
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
-      //setError('')
       setLoading(true)
       await resetPassword(emailRef.current.value)
       history.push('/')
     } catch (error) {
-      //setError('Nie udało się zalogować na podane konto')
       console.log(error)
     }
-
     setLoading(false);
   }
 
