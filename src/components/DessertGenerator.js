@@ -12,7 +12,7 @@ export default function DessertGenerator() {
     meta: '',
   })
 
-  const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * (719 - 1 + 1)) + 1);
+  const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * (705 - 1 + 1)) + 1);
   const [showDessert, setShowDessert] = useState(false);
   const [showTaken, setShowTaken] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
