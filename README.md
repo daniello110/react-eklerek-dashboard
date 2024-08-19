@@ -1,7 +1,5 @@
 # Twitch Streamer Mini Toolbox
 
-## [APP DEMO](https://dan-react-eklerek-tools.netlify.app/)
-
 ## Screenshots
 ![Main Screen](https://i.imgur.com/Cic09qk.png)
 ![Dessert Generator](https://i.imgur.com/1EkW4JL.png)
